@@ -11,9 +11,16 @@ class ChuckNorrisJokeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Image.network(joke.iconUrl),
-      title: Text(joke.value),
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      elevation: 4,
+      child: ListTile(
+        contentPadding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+        leading: Image.network(joke.iconUrl),
+        title: Text(joke.value),
+      ),
     );
   }
 }
