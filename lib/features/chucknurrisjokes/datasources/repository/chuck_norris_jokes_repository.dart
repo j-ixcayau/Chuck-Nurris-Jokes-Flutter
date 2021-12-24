@@ -1,5 +1,5 @@
-import 'package:chuck_norris_jokes/features/chucknurrisjokes/datasources/datasource/chuck_norris_jokes_data_source.dart';
-import 'package:chuck_norris_jokes/features/chucknurrisjokes/datasources/model/joke.dart';
+import '../datasource/chuck_norris_jokes_data_source.dart';
+import '../model/joke.dart';
 
 abstract class ChuckNorrisJokesRepository {
   Future<Joke?> requestJoke();

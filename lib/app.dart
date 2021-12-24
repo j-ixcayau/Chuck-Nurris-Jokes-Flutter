@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'features/chucknurrisjokes/presentation/page/chuck_norris_jokes_page.dart';
+import 'routes/route_names.dart';
+import 'routes/route_settings.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const CuchNorrisJokesPage(),
+      initialRoute: RouteNames.home,
+      onGenerateRoute: RouteSetting.generate,
     );
   }
 }

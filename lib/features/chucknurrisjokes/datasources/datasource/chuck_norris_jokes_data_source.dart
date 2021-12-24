@@ -1,7 +1,8 @@
 import 'dart:convert';
 
-import 'package:chuck_norris_jokes/features/chucknurrisjokes/datasources/model/joke.dart';
 import 'package:http/http.dart' as http;
+
+import '../model/joke.dart';
 
 abstract class ChuckNorrisJokesDataSource {
   Future<Joke?> requestJoke();
