@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_creation/features/chucknurrisjokes/datasources/model/joke.dart';
+import 'package:chuck_norris_jokes/features/chucknurrisjokes/datasources/model/joke.dart';
 
 class ChuckNorrisJokeItem extends StatelessWidget {
   const ChuckNorrisJokeItem({

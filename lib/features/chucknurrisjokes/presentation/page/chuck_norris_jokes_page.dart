@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:test_creation/features/chucknurrisjokes/datasources/datasource/chuck_norris_jokes_data_source.dart';
-import 'package:test_creation/features/chucknurrisjokes/datasources/repository/chuck_norris_jokes_repository.dart';
-import 'package:test_creation/features/chucknurrisjokes/presentation/bloc/chuck_norris_jokes_provider.dart';
-import 'package:test_creation/features/chucknurrisjokes/presentation/page/chuck_norris_jokes_layout.dart';
+import 'package:chuck_norris_jokes/features/chucknurrisjokes/datasources/datasource/chuck_norris_jokes_data_source.dart';
+import 'package:chuck_norris_jokes/features/chucknurrisjokes/datasources/repository/chuck_norris_jokes_repository.dart';
+import 'package:chuck_norris_jokes/features/chucknurrisjokes/presentation/bloc/chuck_norris_jokes_provider.dart';
+import 'package:chuck_norris_jokes/features/chucknurrisjokes/presentation/page/chuck_norris_jokes_layout.dart';
 
 class CuchNorrisJokesPage extends StatefulWidget {
   const CuchNorrisJokesPage({

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:test_creation/features/chucknurrisjokes/datasources/model/joke.dart';
-import 'package:test_creation/features/chucknurrisjokes/datasources/repository/chuck_norris_jokes_repository.dart';
+import 'package:chuck_norris_jokes/features/chucknurrisjokes/datasources/model/joke.dart';
+import 'package:chuck_norris_jokes/features/chucknurrisjokes/datasources/repository/chuck_norris_jokes_repository.dart';
 
 class ChuckNorrisJokesProvider extends ChangeNotifier {
   ChuckNorrisJokesProvider({

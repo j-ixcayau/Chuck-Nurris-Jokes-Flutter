@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:test_creation/features/chucknurrisjokes/presentation/bloc/chuck_norris_jokes_provider.dart';
-import 'package:test_creation/features/chucknurrisjokes/presentation/widgets/chuck_norris_joke_item.dart';
+import 'package:chuck_norris_jokes/features/chucknurrisjokes/presentation/bloc/chuck_norris_jokes_provider.dart';
+import 'package:chuck_norris_jokes/features/chucknurrisjokes/presentation/widgets/chuck_norris_joke_item.dart';
 
 class ChuckNorrisJokesLayout extends StatelessWidget {
   const ChuckNorrisJokesLayout({
