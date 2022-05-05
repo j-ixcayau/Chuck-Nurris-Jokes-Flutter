@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../bloc/chuck_norris_jokes_provider.dart';
+
+import '../viewmodel/chuck_norris_jokes_view_model.dart';
 import '../widgets/chuck_norris_joke_item.dart';
 
 class ChuckNorrisJokesLayout extends StatelessWidget {
@@ -10,7 +11,7 @@ class ChuckNorrisJokesLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ChuckNorrisJokesProvider>(
+    return Consumer<ChuckNorrisJokesViewModel>(
       builder: (context, model, _) {
         return Container(
           margin: const EdgeInsets.fromLTRB(8, 4, 8, 4),

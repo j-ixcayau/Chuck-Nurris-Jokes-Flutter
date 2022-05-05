@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../datasources/datasource/chuck_norris_jokes_data_source.dart';
 import '../../datasources/repository/chuck_norris_jokes_repository.dart';
-import '../bloc/chuck_norris_jokes_provider.dart';
+import '../viewmodel/chuck_norris_jokes_view_model.dart';
 import 'chuck_norris_jokes_layout.dart';
 
 class ChuckNorrisJokesPage extends StatelessWidget {
@@ -13,8 +13,8 @@ class ChuckNorrisJokesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ChuckNorrisJokesProvider>(
-      create: (_) => ChuckNorrisJokesProvider(
+    return ChangeNotifierProvider<ChuckNorrisJokesViewModel>(
+      create: (_) => ChuckNorrisJokesViewModel(
         repository: ChuckNorrisJokesRepositoryImpl(
           datasource: ChuckNorrisJokesDataSourceImpl(),
         ),

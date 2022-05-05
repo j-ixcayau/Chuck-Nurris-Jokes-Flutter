@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../../datasources/model/joke.dart';
 import '../../datasources/repository/chuck_norris_jokes_repository.dart';
 
-class ChuckNorrisJokesProvider extends ChangeNotifier {
-  ChuckNorrisJokesProvider({
+class ChuckNorrisJokesViewModel extends ChangeNotifier {
+  ChuckNorrisJokesViewModel({
     required ChuckNorrisJokesRepository? repository,
-  })  : assert(repository != null),
+  })   : assert(repository != null),
         _repository = repository! {
     _initProvider();
   }
