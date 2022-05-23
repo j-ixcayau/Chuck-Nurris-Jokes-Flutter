@@ -20,19 +20,13 @@ void main() {
     },
   );
 
-  Joke? _provideJoke() {
+  Future<Joke?> _provideFutureJoke() {
     final joke = Joke(
       iconUrl: 'www.image.com',
       id: '1',
       value: 'Joke conten',
       url: 'www.google.com',
     );
-
-    return joke;
-  }
-
-  Future<Joke?> _provideFutureJoke() {
-    final joke = _provideJoke();
 
     return Future.value(joke);
   }
@@ -49,24 +43,25 @@ void main() {
     final result = await sut.requestJoke();
 
     verify(() => dataSource.requestJoke()).called(1);
-    /* expect(res, isA<Joke>());
-    expect(res, _provideJoke()); */
   });
 
-  test('verifyDataSourceCalled', () async {
-    final expectedResult = _provideFutureJoke();
+  test(
+    'verifyDataSourceCalled',
+    () async {
+      final expectedResult = _provideFutureJoke();
 
-    when(
-      () => sut.requestJoke(),
-    ).thenAnswer(
-      (_) async {
-        return expectedResult;
-      },
-    );
+      when(
+        () => sut.requestJoke(),
+      ).thenAnswer(
+        (_) async {
+          return expectedResult;
+        },
+      );
 
-    final result = await sut.requestJoke();
+      final result = await sut.requestJoke();
 
-    expect(result, isA<Joke?>());
-    expect(result, await expectedResult);
-  });
+      expect(result, isA<Joke?>());
+      expect(result, await expectedResult);
+    },
+  );
 }
