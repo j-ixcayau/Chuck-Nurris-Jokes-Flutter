@@ -18,7 +18,16 @@ class ChuckNorrisJokeItem extends StatelessWidget {
       elevation: 4,
       child: ListTile(
         contentPadding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
-        leading: Image.network(joke.iconUrl),
+        leading: SizedBox(
+          width: 80,
+          height: 80,
+          child: Image(
+            image: NetworkImage(joke.iconUrl),
+            width: 80,
+            height: 80,
+            fit: BoxFit.contain,
+          ),
+        ),
         title: Text(joke.value),
       ),
     );
