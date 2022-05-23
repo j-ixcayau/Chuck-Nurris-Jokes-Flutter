@@ -8,7 +8,7 @@ abstract class ChuckNorrisJokesRepository {
 class ChuckNorrisJokesRepositoryImpl extends ChuckNorrisJokesRepository {
   ChuckNorrisJokesRepositoryImpl({
     required ChuckNorrisJokesDataSource? datasource,
-  })   : assert(datasource != null),
+  })  : assert(datasource != null),
         _datasource = datasource!;
 
   final ChuckNorrisJokesDataSource _datasource;
