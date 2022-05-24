@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../chuck_norris_jokes/widgets/chuck_norris_joke_item.dart';
 import '../viewmodel/display_random_joke_view_model.dart';
 
 class DisplayRandomJokeLayout extends StatelessWidget {
@@ -14,9 +15,9 @@ class DisplayRandomJokeLayout extends StatelessWidget {
       builder: (context, model, _) {
         return Column(
           children: [
-            Hero(
-              tag: model.joke.id,
-              child: Text(model.joke.value),
+            ChuckNorrisJokeItem(
+              joke: model.joke,
+              onTap: (joke) {},
             ),
           ],
         );

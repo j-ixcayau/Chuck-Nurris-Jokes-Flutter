@@ -22,7 +22,7 @@ class ChuckNorrisJokesPage extends StatelessWidget {
       builder: (contex, _) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Chistes Chuck Norris'),
+            title: const Text('Chuck Norris Jokes List'),
             centerTitle: true,
           ),
           body: const ChuckNorrisJokesLayout(),
