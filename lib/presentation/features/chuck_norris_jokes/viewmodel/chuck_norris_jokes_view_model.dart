@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../domain/entities/joke.dart';
-import '../../../domain/repositories/random_joke_repository.dart';
+import '../../../../domain/entities/joke.dart';
+import '../../../../domain/repositories/random_joke_repository.dart';
 
 class ChuckNorrisJokesViewModel extends ChangeNotifier {
   ChuckNorrisJokesViewModel({

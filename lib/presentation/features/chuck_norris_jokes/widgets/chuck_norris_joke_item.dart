@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../domain/entities/joke.dart';
+import '../../../../domain/entities/joke.dart';
+import '../../../widgets/network_image.dart';
 
 class ChuckNorrisJokeItem extends StatelessWidget {
   const ChuckNorrisJokeItem({
@@ -19,13 +20,10 @@ class ChuckNorrisJokeItem extends StatelessWidget {
       elevation: 4,
       child: ListTile(
         contentPadding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
-        leading: SizedBox(
+        leading: LoadNetworkImage(
+          joke.iconUrl,
           width: 50,
           height: 50,
-          child: Image(
-            image: NetworkImage(joke.iconUrl),
-            fit: BoxFit.contain,
-          ),
         ),
         title: Text(joke.value),
       ),

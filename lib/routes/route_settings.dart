@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../presentation/chuck_norris_jokes/page/chuck_norris_jokes_page.dart';
-import '../presentation/unknown/page/unknown_page.dart';
+import '../presentation/features/chuck_norris_jokes/page/chuck_norris_jokes_page.dart';
+import '../presentation/features/unknown/page/unknown_page.dart';
 import 'route_names.dart';
 
 class RouteSetting {

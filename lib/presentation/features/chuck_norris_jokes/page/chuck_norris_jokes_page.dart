@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../data/datasources/chuck_norris_jokes_data_source.dart';
-import '../../../data/repositories/random_joke_repository.dart';
+import '../../../../data/datasources/chuck_norris_jokes_data_source.dart';
+import '../../../../data/repositories/random_joke_repository.dart';
 import '../viewmodel/chuck_norris_jokes_view_model.dart';
 import 'chuck_norris_jokes_layout.dart';
 
