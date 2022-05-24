@@ -31,7 +31,7 @@ void main() {
     return Future.value(joke);
   }
 
-  test('verifyDataSourceCalled', () async {
+  test('verifyDataSourceCall_whenAppStart_onAppFlow', () async {
     when(
       () => sut.requestJoke(),
     ).thenAnswer(
@@ -46,7 +46,7 @@ void main() {
   });
 
   test(
-    'verifyDataSourceCalled',
+    'verifySucess_whenAppStart_onAppFlow',
     () async {
       final expectedResult = _provideFutureJoke();
 
@@ -60,8 +60,23 @@ void main() {
 
       final result = await sut.requestJoke();
 
-      expect(result, isA<Joke?>());
+      expect(result, isA<Joke>());
       expect(result, await expectedResult);
+    },
+  );
+
+  test(
+    'verifyFailure_whenAppStart_onAppFlow',
+    () async {
+      when(
+        () => sut.requestJoke(),
+      ).thenThrow(
+        Exception('oops'),
+      );
+
+      final result = await sut.requestJoke();
+
+      expect(result, isNull);
     },
   );
 }

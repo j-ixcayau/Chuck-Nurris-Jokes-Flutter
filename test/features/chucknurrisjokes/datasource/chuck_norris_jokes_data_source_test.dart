@@ -7,17 +7,29 @@ import 'package:mocktail/mocktail.dart';
 class MockClientTest extends Mock implements http.Client {}
 
 void main() {
+  /*
+  * Helper fields
+  */
+  final uriJokes = Uri.parse('https://api.chucknorris.io/jokes/random');
+  const jokeContent =
+      "u know how there r ufo sightings those arent ufo's those r frisbees Chuck Norris threw";
+  const failure500Text =
+      "12390-adfjlzxcvklj3q4m52/asdfj234509jaskd.,mzxcv awupqwe";
+
+  /*
+  * Vars
+  */
   late ChuckNorrisJokesDataSource sut;
   late MockClientTest httpClient;
 
   setUpAll(
     () {
-      sut = ChuckNorrisJokesDataSourceImpl();
       httpClient = MockClientTest();
+      sut = ChuckNorrisJokesDataSourceImpl(
+        httpClient: httpClient,
+      );
 
-      registerFallbackValue(MockClientTest());
-      registerFallbackValue(
-          Uri.parse('https://api.chucknorris.io/jokes/random'));
+      registerFallbackValue(uriJokes);
     },
   );
 
@@ -31,12 +43,31 @@ void main() {
       "id": "KiF0RZkdRRmFV1bhUuEwOQ",
       "updated_at": "2020-01-05 13:42:30.480041",
       "url": "https://api.chucknorris.io/jokes/KiF0RZkdRRmFV1bhUuEwOQ",
-      "value": "u know how there r ufo sightings those arent ufo's those r frisbees Chuck Norris threw"
+      "value": "$jokeContent"
     }''';
   }
 
   test(
-    'verifySuccessHttp',
+    'verifyHttpGetCall_whenAppStart_onAppFlow',
+    () async {
+      final expectedJson = _provideJsonRes();
+
+      when(
+        () => httpClient.get(any()),
+      ).thenAnswer(
+        (_) async {
+          return http.Response(expectedJson, 200);
+        },
+      );
+
+      final result = await sut.requestJoke();
+
+      verify(() => httpClient.get(uriJokes)).called(1);
+    },
+  );
+
+  test(
+    'verifySuccessResponse_whenAppStart_onAppFlow',
     () async {
       final expectedJson = _provideJsonRes();
 
@@ -51,19 +82,36 @@ void main() {
       final result = await sut.requestJoke();
 
       expect(result, isA<Joke?>());
+      expect(result, isNotNull);
+      expect(result!.value, jokeContent);
     },
   );
 
   test(
-    'verifyFailureHttp',
+    'verify500Response_whenAppStart_onAppFlow',
     () async {
       when(
         () => httpClient.get(any()),
-      ).thenThrow(Exception('oops'));
+      ).thenAnswer(
+        (_) async {
+          return http.Response(failure500Text, 500);
+        },
+      );
 
-      final result = await sut.requestJoke();
+      expect(sut.requestJoke(), throwsException);
+    },
+  );
 
-      expect(result, isA<Joke?>());
+  test(
+    'verifyFailureResponse_whenAppStart_onAppFlow',
+    () async {
+      when(
+        () => httpClient.get(any()),
+      ).thenThrow(
+        Exception('oops'),
+      );
+
+      expect(sut.requestJoke(), throwsException);
     },
   );
 }
