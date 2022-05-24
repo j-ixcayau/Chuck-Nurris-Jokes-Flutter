@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../domain/entities/joke.dart';
-import '../presentation/features/chuck_norris_jokes/page/chuck_norris_jokes_page.dart';
-import '../presentation/features/display_random_joke/page/display_random_joke_page.dart';
-import '../presentation/features/unknown/page/unknown_page.dart';
+import '../../domain/entities/joke.dart';
+import '../features/chuck_norris_jokes/page/chuck_norris_jokes_page.dart';
+import '../features/display_random_joke/page/display_random_joke_page.dart';
+import '../features/unknown/page/unknown_page.dart';
 import 'route_names.dart';
 
 class RouteSetting {
