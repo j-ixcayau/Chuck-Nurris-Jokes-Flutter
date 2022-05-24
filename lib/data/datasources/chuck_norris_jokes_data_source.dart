@@ -2,7 +2,8 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../model/joke.dart';
+import '../../../../domain/entities/joke.dart';
+import '../constants.dart';
 
 abstract class ChuckNorrisJokesDataSource {
   Future<Joke?> requestJoke();
@@ -11,16 +12,17 @@ abstract class ChuckNorrisJokesDataSource {
 class ChuckNorrisJokesDataSourceImpl extends ChuckNorrisJokesDataSource {
   ChuckNorrisJokesDataSourceImpl({
     http.Client? httpClient,
-  }) : _httpClient = httpClient ?? http.Client();
+  })  : _httpClient = httpClient ?? http.Client(),
+        _url = AppUrls.url;
 
   final http.Client _httpClient;
+  final Uri _url;
 
   @override
   Future<Joke> requestJoke() async {
     try {
-      final url = Uri.parse('https://api.chucknorris.io/jokes/random');
       final response =
-          await _httpClient.get(url).timeout(const Duration(seconds: 15));
+          await _httpClient.get(_url).timeout(const Duration(seconds: 15));
 
       if (response.statusCode == 200) {
         final jokeJson = json.decode(response.body);

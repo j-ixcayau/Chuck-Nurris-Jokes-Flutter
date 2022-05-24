@@ -1,6 +1,9 @@
-import 'package:chuck_norris_jokes/features/chucknurrisjokes/datasources/datasource/chuck_norris_jokes_data_source.dart';
-import 'package:chuck_norris_jokes/features/chucknurrisjokes/datasources/model/joke.dart';
-import 'package:chuck_norris_jokes/features/chucknurrisjokes/datasources/repository/chuck_norris_jokes_repository.dart';
+import 'package:chuck_norris_jokes/data/datasources/chuck_norris_jokes_data_source.dart';
+import 'package:chuck_norris_jokes/data/failure.dart';
+import 'package:chuck_norris_jokes/data/repositories/random_joke_repository.dart';
+import 'package:chuck_norris_jokes/domain/entities/joke.dart';
+import 'package:chuck_norris_jokes/domain/repositories/random_joke_repository.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -9,18 +12,18 @@ class ChuckNorrisJokesDataSourceTest extends Mock
 
 void main() {
   late ChuckNorrisJokesDataSourceTest dataSource;
-  late ChuckNorrisJokesRepository sut;
+  late RandomJokeRepository sut;
 
   setUpAll(
     () {
       dataSource = ChuckNorrisJokesDataSourceTest();
-      sut = ChuckNorrisJokesRepositoryImpl(
+      sut = RandomJokeRepositoryImpl(
         datasource: dataSource,
       );
     },
   );
 
-  Future<Joke?> _provideFutureJoke() {
+  Future<Either<Failure, Joke>> _provideRightResult() {
     final joke = Joke(
       iconUrl: 'www.image.com',
       id: '1',
@@ -28,19 +31,25 @@ void main() {
       url: 'www.google.com',
     );
 
-    return Future.value(joke);
+    return Future.value(Right(joke));
+  }
+
+  Future<Either<Failure, Joke>> _provideLeftResult() {
+    const failure = UnknowFailure();
+
+    return Future.value(const Left(failure));
   }
 
   test('verifyDataSourceCall_whenAppStart_onAppFlow', () async {
     when(
-      () => sut.requestJoke(),
+      () => sut.getRandomJoke(),
     ).thenAnswer(
       (_) async {
-        return _provideFutureJoke();
+        return _provideRightResult();
       },
     );
 
-    final result = await sut.requestJoke();
+    final result = await sut.getRandomJoke();
 
     verify(() => dataSource.requestJoke()).called(1);
   });
@@ -48,17 +57,17 @@ void main() {
   test(
     'verifySucess_whenAppStart_onAppFlow',
     () async {
-      final expectedResult = _provideFutureJoke();
+      final expectedResult = _provideRightResult();
 
       when(
-        () => sut.requestJoke(),
+        () => sut.getRandomJoke(),
       ).thenAnswer(
         (_) async {
           return expectedResult;
         },
       );
 
-      final result = await sut.requestJoke();
+      final result = await sut.getRandomJoke();
 
       expect(result, isA<Joke>());
       expect(result, await expectedResult);
@@ -68,15 +77,17 @@ void main() {
   test(
     'verifyFailure_whenAppStart_onAppFlow',
     () async {
+      final expectedResult = _provideLeftResult();
+
       when(
-        () => sut.requestJoke(),
-      ).thenThrow(
-        Exception('oops'),
-      );
+        () => sut.getRandomJoke(),
+      ).thenAnswer((_) async {
+        return expectedResult;
+      });
 
-      final result = await sut.requestJoke();
+      final result = await sut.getRandomJoke();
 
-      expect(result, isNull);
+      expect(result, expectedResult);
     },
   );
 }

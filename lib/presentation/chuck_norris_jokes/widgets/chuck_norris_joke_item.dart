@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../features/chucknurrisjokes/datasources/model/joke.dart';
+import '../../../domain/entities/joke.dart';
 
 class ChuckNorrisJokeItem extends StatelessWidget {
   const ChuckNorrisJokeItem({
@@ -20,12 +20,10 @@ class ChuckNorrisJokeItem extends StatelessWidget {
       child: ListTile(
         contentPadding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
         leading: SizedBox(
-          width: 80,
-          height: 80,
+          width: 50,
+          height: 50,
           child: Image(
             image: NetworkImage(joke.iconUrl),
-            width: 80,
-            height: 80,
             fit: BoxFit.contain,
           ),
         ),

@@ -1,5 +1,5 @@
-import 'package:chuck_norris_jokes/features/chucknurrisjokes/datasources/datasource/chuck_norris_jokes_data_source.dart';
-import 'package:chuck_norris_jokes/features/chucknurrisjokes/datasources/model/joke.dart';
+import 'package:chuck_norris_jokes/data/datasources/chuck_norris_jokes_data_source.dart';
+import 'package:chuck_norris_jokes/domain/entities/joke.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';

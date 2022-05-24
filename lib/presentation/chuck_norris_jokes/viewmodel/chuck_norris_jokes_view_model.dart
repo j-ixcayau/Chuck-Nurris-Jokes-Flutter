@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../../../features/chucknurrisjokes/datasources/model/joke.dart';
-import '../../../features/chucknurrisjokes/datasources/repository/chuck_norris_jokes_repository.dart';
+import '../../../domain/entities/joke.dart';
+import '../../../domain/repositories/random_joke_repository.dart';
 
 class ChuckNorrisJokesViewModel extends ChangeNotifier {
   ChuckNorrisJokesViewModel({
-    required ChuckNorrisJokesRepository repository,
+    required RandomJokeRepository repository,
   }) : _repository = repository {
     _initProvider();
   }
 
-  final ChuckNorrisJokesRepository _repository;
+  final RandomJokeRepository _repository;
   List<Joke> jokes = [];
 
   void _initProvider() => _fetchNewJoke();
@@ -22,16 +22,20 @@ class ChuckNorrisJokesViewModel extends ChangeNotifier {
   }
 
   void _requestNewJoke() async {
-    final result = await _repository.requestJoke();
-    if (result != null) {
-      final jokeIndex = jokes.indexWhere((it) => it.id == result.id);
+    final result = await _repository.getRandomJoke();
 
-      if (jokeIndex == -1) {
-        jokes.add(result);
+    result.fold(
+      (l) {},
+      (r) {
+        final jokeIndex = jokes.indexWhere((it) => it.id == r.id);
 
-        notifyListeners();
-      }
-    }
+        if (jokeIndex == -1) {
+          jokes.add(r);
+
+          notifyListeners();
+        }
+      },
+    );
 
     _fetchNewJoke();
   }
