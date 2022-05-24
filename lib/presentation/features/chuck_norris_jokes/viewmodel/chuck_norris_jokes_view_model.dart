@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../domain/entities/joke.dart';
 import '../../../../domain/repositories/random_joke_repository.dart';
+import '../../../../routes/route_names.dart';
 
 class ChuckNorrisJokesViewModel extends ChangeNotifier {
   ChuckNorrisJokesViewModel({
@@ -38,5 +39,9 @@ class ChuckNorrisJokesViewModel extends ChangeNotifier {
     );
 
     _fetchNewJoke();
+  }
+
+  void onJokeTap(Joke joke, BuildContext context) {
+    Navigator.pushNamed(context, RouteNames.singleJoke, arguments: joke);
   }
 }

@@ -1,7 +1,8 @@
+import 'package:dartz/dartz.dart';
+
 import '../../data/failure.dart';
 import '../entities/joke.dart';
 import '../repositories/random_joke_repository.dart';
-import 'package:dartz/dartz.dart';
 
 class RandomJokeUseCase {
   RandomJokeUseCase({

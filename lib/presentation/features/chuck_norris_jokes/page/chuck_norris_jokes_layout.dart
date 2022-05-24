@@ -20,6 +20,9 @@ class ChuckNorrisJokesLayout extends StatelessWidget {
             itemBuilder: (context, i) {
               return ChuckNorrisJokeItem(
                 joke: model.jokes[i],
+                onTap: (joke) {
+                  model.onJokeTap(joke, context);
+                },
               );
             },
           ),
