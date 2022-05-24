@@ -22,8 +22,6 @@ class ChuckNorrisJokesDataSourceImpl extends ChuckNorrisJokesDataSource {
       final response =
           await _httpClient.get(url).timeout(const Duration(seconds: 15));
 
-      final body = response.body;
-
       if (response.statusCode == 200) {
         final jokeJson = json.decode(response.body);
 
