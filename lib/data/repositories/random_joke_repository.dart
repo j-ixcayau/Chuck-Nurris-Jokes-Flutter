@@ -21,7 +21,7 @@ class RandomJokeRepositoryImpl extends RandomJokeRepository {
       final result = await _datasource.requestJoke();
 
       if (result != null) {
-        return Right(result);
+        return Right(result.toEntity());
       }
     } on ServerException {
       return const Left(ServerFailure());

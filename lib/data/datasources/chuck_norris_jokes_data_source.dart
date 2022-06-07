@@ -2,11 +2,11 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../../../../domain/entities/joke.dart';
 import '../constants.dart';
+import '../model/joke_model.dart';
 
 abstract class ChuckNorrisJokesDataSource {
-  Future<Joke?> requestJoke();
+  Future<JokeModel?> requestJoke();
 }
 
 class ChuckNorrisJokesDataSourceImpl extends ChuckNorrisJokesDataSource {
@@ -19,7 +19,7 @@ class ChuckNorrisJokesDataSourceImpl extends ChuckNorrisJokesDataSource {
   final Uri _url;
 
   @override
-  Future<Joke> requestJoke() async {
+  Future<JokeModel?> requestJoke() async {
     try {
       final response =
           await _httpClient.get(_url).timeout(const Duration(seconds: 15));
@@ -27,7 +27,7 @@ class ChuckNorrisJokesDataSourceImpl extends ChuckNorrisJokesDataSource {
       if (response.statusCode == 200) {
         final jokeJson = json.decode(response.body);
 
-        return Joke.fromJson(jokeJson);
+        return JokeModel.fromJson(jokeJson);
       }
     } catch (e) {
       print(e);

@@ -1,7 +1,9 @@
-class Joke {
-  Joke({
-    required this.iconUrl,
+import 'package:equatable/equatable.dart';
+
+class Joke extends Equatable {
+  const Joke({
     required this.id,
+    required this.iconUrl,
     required this.value,
     this.url,
   });
@@ -12,17 +14,11 @@ class Joke {
 
   final String? url;
 
-  factory Joke.fromJson(Map<String, dynamic> json) => Joke(
-        iconUrl: json['icon_url'],
-        id: json['id'],
-        url: json['url'],
-        value: json['value'],
-      );
-
-  Map<String, dynamic> toJson() => {
-        'icon_url': iconUrl,
-        'id': id,
-        'url': url,
-        'value': value,
-      };
+  @override
+  List<Object?> get props => [
+        id,
+        iconUrl,
+        value,
+        url,
+      ];
 }
