@@ -1,5 +1,5 @@
 import 'package:chuck_norris_jokes/data/datasources/chuck_norris_jokes_data_source.dart';
-import 'package:chuck_norris_jokes/domain/entities/joke.dart';
+import 'package:chuck_norris_jokes/data/model/joke_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
@@ -14,7 +14,7 @@ void main() {
   const jokeContent =
       "u know how there r ufo sightings those arent ufo's those r frisbees Chuck Norris threw";
   const failure500Text =
-      "12390-adfjlzxcvklj3q4m52/asdfj234509jaskd.,mzxcv awupqwe";
+      '12390-adfjlzxcvklj3q4m52/asdfj234509jaskd.,mzxcv awupqwe';
 
   /*
   * Vars
@@ -35,9 +35,7 @@ void main() {
 
   String _provideJsonRes() {
     return '''{
-      "categories": [
-        
-      ],
+      "categories": [],
       "created_at": "2020-01-05 13:42:30.480041",
       "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
       "id": "KiF0RZkdRRmFV1bhUuEwOQ",
@@ -81,7 +79,7 @@ void main() {
 
       final result = await sut.requestJoke();
 
-      expect(result, isA<Joke?>());
+      expect(result, isA<JokeModel?>());
       expect(result, isNotNull);
       expect(result!.value, jokeContent);
     },
