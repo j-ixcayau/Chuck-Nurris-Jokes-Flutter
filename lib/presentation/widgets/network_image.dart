@@ -1,5 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:paulonia_cache_image/paulonia_cache_image.dart';
 
 class LoadNetworkImage extends StatelessWidget {
   const LoadNetworkImage(
@@ -26,27 +26,12 @@ class LoadNetworkImage extends StatelessWidget {
       width: width,
       height: height,
       child: Center(
-        child: Image(
-          width: width,
-          height: height,
-          image: PCacheImage(
-            url!,
-            enableInMemory: true,
-          ),
-          frameBuilder: (_, image, loadingBuilder, __) {
-            if (loadingBuilder == null) {
-              return const CircularProgressIndicator();
-            }
-            return image;
+        child: CachedNetworkImage(
+          imageUrl: url!,
+          progressIndicatorBuilder: (context, url, downloadProgress) {
+            return CircularProgressIndicator(value: downloadProgress.progress);
           },
-          loadingBuilder: (context, child, loadingProgress) {
-            if (loadingProgress == null) {
-              return child;
-            }
-
-            return const CircularProgressIndicator();
-          },
-          errorBuilder: (context, _, __) {
+          errorWidget: (context, url, error) {
             return const Icon(Icons.error_outline);
           },
         ),
