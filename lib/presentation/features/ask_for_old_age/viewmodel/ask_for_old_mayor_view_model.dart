@@ -1,4 +1,6 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+
+import '../../../routes/route_names.dart';
 
 class AskForOldMayorViewModel extends ChangeNotifier {
   AskForOldMayorViewModel({
@@ -8,10 +10,57 @@ class AskForOldMayorViewModel extends ChangeNotifier {
   BuildContext context;
 
   void onContinueTap() {
-    print('onContinueTap');
+    Navigator.pushReplacementNamed(context, RouteNames.jokesList);
   }
 
   void onCancelTap() {
-    print('onContinueTap');
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const <Widget>[
+              Text(
+                'English:',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                'Due to your age you cannot see the content of the app',
+                style: TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+              SizedBox(height: 16),
+              Text(
+                'Español:',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                'Debido a tu edad no puedes ver el contenido del app',
+                style: TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Aceptar'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }

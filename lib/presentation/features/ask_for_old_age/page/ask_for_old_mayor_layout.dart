@@ -9,7 +9,7 @@ class AskForOldMayorLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<AskForOldMayorViewModel>(
-      builder: (context, model, _) {
+      builder: (context, viewModel, _) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -21,6 +21,26 @@ class AskForOldMayorLayout extends StatelessWidget {
                 fontSize: 24,
               ),
               textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                const SizedBox(width: 4),
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: viewModel.onContinueTap,
+                    child: const Text('Yes / Si'),
+                  ),
+                ),
+                const SizedBox(width: 4),
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: viewModel.onCancelTap,
+                    child: const Text('No / No'),
+                  ),
+                ),
+                const SizedBox(width: 4),
+              ],
             ),
           ],
         );

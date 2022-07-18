@@ -10,6 +10,7 @@ import 'route_names.dart';
 class RouteSetting {
   static Route<dynamic> generate(RouteSettings settings) {
     dynamic page;
+
     String name = settings.name!;
     dynamic args = settings.arguments;
 
