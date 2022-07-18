@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 
 import '../constants.dart';
@@ -30,7 +31,7 @@ class ChuckNorrisJokesDataSourceImpl extends ChuckNorrisJokesDataSource {
         return JokeModel.fromJson(jokeJson);
       }
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
 
       rethrow;
     }

@@ -1,7 +1,5 @@
-import 'dart:math';
-
 import 'package:chuck_norris_jokes/data/datasources/chuck_norris_jokes_data_source.dart';
-import 'package:chuck_norris_jokes/data/failure.dart';
+
 import 'package:chuck_norris_jokes/data/model/joke_model.dart';
 import 'package:chuck_norris_jokes/data/repositories/random_joke_repository.dart';
 import 'package:chuck_norris_jokes/domain/repositories/random_joke_repository.dart';

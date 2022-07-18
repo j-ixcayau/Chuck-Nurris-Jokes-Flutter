@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: RouteNames.home,
+      initialRoute: RouteNames.askForOldMayor,
       onGenerateRoute: RouteSetting.generate,
     );
   }
