@@ -15,5 +15,5 @@
     "files.watcherExclude": {
         "**/.fvm": true
     },
-    "dart.flutterSdkPath": "/Users/jonathanixcayau/fvm/versions/2.5.2"
+    "dart.flutterSdkPath": "/Users/tribal/fvm/versions/3.0.0"
 }
