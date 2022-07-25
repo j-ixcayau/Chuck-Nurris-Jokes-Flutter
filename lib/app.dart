@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'routes/route_names.dart';
-import 'routes/route_settings.dart';
+import 'presentation/routes/route_names.dart';
+import 'presentation/routes/route_settings.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: RouteNames.home,
+      initialRoute: RouteNames.askForOldMayor,
       onGenerateRoute: RouteSetting.generate,
     );
   }
