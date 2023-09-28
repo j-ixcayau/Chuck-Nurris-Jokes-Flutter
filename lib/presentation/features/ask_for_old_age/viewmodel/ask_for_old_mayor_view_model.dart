@@ -18,10 +18,10 @@ class AskForOldMayorViewModel extends ChangeNotifier {
       context: context,
       builder: (context) {
         return AlertDialog(
-          content: const Column(
+          content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
+            children: const <Widget>[
               Text(
                 'English:',
                 style: TextStyle(
