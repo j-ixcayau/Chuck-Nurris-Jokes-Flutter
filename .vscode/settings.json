@@ -6,7 +6,7 @@
         "**/.settings": true,
         "**/.factorypath": true
     },
-    "dart.flutterSdkPaths": ["/Users/jonathanixcayau/fvm/versions"],
+    "dart.flutterSdkPaths": ["/Users/jontahanixcayau/fvm/versions"],
     // Remove .fvm files from search
     "search.exclude": {
         "**/.fvm": true
@@ -15,5 +15,5 @@
     "files.watcherExclude": {
         "**/.fvm": true
     },
-    "dart.flutterSdkPath": "/Users/tribal/fvm/versions/3.0.0"
+    "dart.flutterSdkPath": "/Users/jontahanixcayau/fvm/versions/3.10.0"
 }

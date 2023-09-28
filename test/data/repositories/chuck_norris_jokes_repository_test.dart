@@ -1,11 +1,11 @@
-import 'package:chuck_norris_jokes/data/datasources/chuck_norris_jokes_data_source.dart';
-
-import 'package:chuck_norris_jokes/data/model/joke_model.dart';
-import 'package:chuck_norris_jokes/data/repositories/random_joke_repository.dart';
-import 'package:chuck_norris_jokes/domain/repositories/random_joke_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+
+import 'package:chuck_norris_jokes/data/datasources/chuck_norris_jokes_data_source.dart';
+import 'package:chuck_norris_jokes/data/model/joke_model.dart';
+import 'package:chuck_norris_jokes/data/repositories/random_joke_repository.dart';
+import 'package:chuck_norris_jokes/domain/repositories/random_joke_repository.dart';
 
 class ChuckNorrisJokesDataSourceTest extends Mock
     implements ChuckNorrisJokesDataSource {}
@@ -23,7 +23,7 @@ void main() {
     },
   );
 
-  Future<JokeModel?> _provideSuccessJokeModelResult() async {
+  Future<JokeModel?> provideSuccessJokeModelResult() async {
     const joke = JokeModel(
       iconUrl: 'www.image.com',
       id: '1',
@@ -36,7 +36,7 @@ void main() {
     return joke;
   }
 
-  Future<JokeModel?> _provideFailureJokeModelResult() async {
+  Future<JokeModel?> provideFailureJokeModelResult() async {
     return Future.value(null);
   }
 
@@ -46,7 +46,7 @@ void main() {
       when(
         () => dataSource.requestJoke(),
       ).thenAnswer(
-        (_) async => _provideSuccessJokeModelResult(),
+        (_) async => provideSuccessJokeModelResult(),
       );
 
       final result = await sut.getRandomJoke();
@@ -59,7 +59,7 @@ void main() {
   test(
     'verifySucess_whenAppStart_onAppFlow',
     () async {
-      final entityJoke = _provideSuccessJokeModelResult();
+      final entityJoke = provideSuccessJokeModelResult();
       final joke = (await entityJoke)!.toEntity();
 
       when(
@@ -82,7 +82,7 @@ void main() {
   test(
     'verifyFailure_whenAppStart_onAppFlow',
     () async {
-      final entityJoke = _provideFailureJokeModelResult();
+      final entityJoke = provideFailureJokeModelResult();
 
       when(
         () => dataSource.requestJoke(),

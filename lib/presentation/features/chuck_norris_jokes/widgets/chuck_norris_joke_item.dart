@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../domain/entities/joke.dart';
-import '../../../widgets/network_image.dart';
 
 class ChuckNorrisJokeItem extends StatelessWidget {
   const ChuckNorrisJokeItem({
@@ -27,8 +26,10 @@ class ChuckNorrisJokeItem extends StatelessWidget {
             onTap(joke);
           },
           contentPadding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
-          leading: LoadNetworkImage(
-            joke.iconUrl,
+          leading: const Image(
+            image: AssetImage(
+              'assets/chueck_norris_icon.png',
+            ),
             width: 50,
             height: 50,
           ),
