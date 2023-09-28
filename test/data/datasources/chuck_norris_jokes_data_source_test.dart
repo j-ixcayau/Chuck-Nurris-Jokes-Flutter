@@ -1,8 +1,9 @@
-import 'package:chuck_norris_jokes/data/datasources/chuck_norris_jokes_data_source.dart';
-import 'package:chuck_norris_jokes/data/model/joke_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
+
+import 'package:chuck_norris_jokes/data/datasources/chuck_norris_jokes_data_source.dart';
+import 'package:chuck_norris_jokes/data/model/joke_model.dart';
 
 class MockClientTest extends Mock implements http.Client {}
 
@@ -33,7 +34,7 @@ void main() {
     },
   );
 
-  String _provideJsonRes() {
+  String provideJsonRes() {
     return '''{
       "categories": [],
       "created_at": "2020-01-05 13:42:30.480041",
@@ -48,7 +49,7 @@ void main() {
   test(
     'verifyHttpGetCall_whenAppStart_onAppFlow',
     () async {
-      final expectedJson = _provideJsonRes();
+      final expectedJson = provideJsonRes();
 
       when(
         () => httpClient.get(any()),
@@ -58,7 +59,7 @@ void main() {
         },
       );
 
-      final result = await sut.requestJoke();
+      await sut.requestJoke();
 
       verify(() => httpClient.get(uriJokes)).called(1);
     },
@@ -67,7 +68,7 @@ void main() {
   test(
     'verifySuccessResponse_whenAppStart_onAppFlow',
     () async {
-      final expectedJson = _provideJsonRes();
+      final expectedJson = provideJsonRes();
 
       when(
         () => httpClient.get(any()),
