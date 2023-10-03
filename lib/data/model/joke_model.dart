@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import '../../domain/entities/joke.dart';
+import 'package:chuck_norris_jokes/domain/entities/joke.dart';
 
 class JokeModel extends Equatable {
   const JokeModel({

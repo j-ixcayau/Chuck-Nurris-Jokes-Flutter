@@ -2,7 +2,8 @@ import 'package:flutter/widgets.dart';
 
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-import '../../../../domain/entities/joke.dart';
+import 'package:chuck_norris_jokes/data/constants.dart';
+import 'package:chuck_norris_jokes/domain/entities/joke.dart';
 
 class DisplayRandomJokeViewModel extends ChangeNotifier {
   DisplayRandomJokeViewModel({
@@ -16,7 +17,7 @@ class DisplayRandomJokeViewModel extends ChangeNotifier {
 
   void _init() {
     InterstitialAd.load(
-      adUnitId: 'ca-app-pub-1119049943081584/4274503265',
+      adUnitId: AppUrls.intersticialId,
       request: const AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (InterstitialAd ad) {

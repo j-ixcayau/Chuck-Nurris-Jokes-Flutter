@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import 'package:chuck_norris_jokes/data/constants.dart';
+import 'package:chuck_norris_jokes/domain/entities/joke.dart';
+import 'package:chuck_norris_jokes/domain/repositories/random_joke_repository.dart';
+import 'package:chuck_norris_jokes/presentation/routes/route_names.dart';
 import 'package:chuck_norris_jokes/presentation/utils/bad_words_checker.dart';
-
-import '../../../../domain/entities/joke.dart';
-import '../../../../domain/repositories/random_joke_repository.dart';
-import '../../../routes/route_names.dart';
 
 class ChuckNorrisJokesViewModel extends ChangeNotifier {
   ChuckNorrisJokesViewModel({
@@ -54,7 +54,7 @@ class ChuckNorrisJokesViewModel extends ChangeNotifier {
       );
 
       myBanner = BannerAd(
-        adUnitId: 'ca-app-pub-1119049943081584/5774916067',
+        adUnitId: AppUrls.bannerId,
         size: AdSize.banner,
         request: const AdRequest(),
         listener: listener,

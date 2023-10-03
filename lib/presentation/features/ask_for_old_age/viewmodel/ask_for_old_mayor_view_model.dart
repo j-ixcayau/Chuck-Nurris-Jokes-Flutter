@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../routes/route_names.dart';
+import 'package:chuck_norris_jokes/presentation/routes/route_names.dart';
 
 class AskForOldMayorViewModel extends ChangeNotifier {
   AskForOldMayorViewModel({

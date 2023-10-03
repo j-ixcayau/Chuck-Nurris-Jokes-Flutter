@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 
-import '../viewmodel/ask_for_old_mayor_view_model.dart';
+import 'package:chuck_norris_jokes/presentation/features/ask_for_old_age/viewmodel/ask_for_old_mayor_view_model.dart';
 
 class AskForOldMayorLayout extends StatelessWidget {
   const AskForOldMayorLayout({Key? key}) : super(key: key);
