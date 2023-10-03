@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 
-import '../../domain/entities/joke.dart';
-import '../../domain/repositories/random_joke_repository.dart';
-import '../datasources/chuck_norris_jokes_data_source.dart';
-import '../exception.dart';
-import '../failure.dart';
+import 'package:chuck_norris_jokes/data/datasources/chuck_norris_jokes_data_source.dart';
+import 'package:chuck_norris_jokes/data/exception.dart';
+import 'package:chuck_norris_jokes/data/failure.dart';
+import 'package:chuck_norris_jokes/domain/entities/joke.dart';
+import 'package:chuck_norris_jokes/domain/repositories/random_joke_repository.dart';
 
 class RandomJokeRepositoryImpl extends RandomJokeRepository {
   RandomJokeRepositoryImpl({

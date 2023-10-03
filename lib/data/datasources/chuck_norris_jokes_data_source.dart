@@ -1,10 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
+
 import 'package:http/http.dart' as http;
 
-import '../constants.dart';
-import '../model/joke_model.dart';
+import 'package:chuck_norris_jokes/data/constants.dart';
+import 'package:chuck_norris_jokes/data/model/joke_model.dart';
 
 abstract class ChuckNorrisJokesDataSource {
   Future<JokeModel?> requestJoke();
