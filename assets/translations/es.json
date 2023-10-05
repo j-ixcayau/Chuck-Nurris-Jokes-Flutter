@@ -1,0 +1,18 @@
+{
+    "oldMayorPage": {
+        "appbarTitle": "Chistes de Chuck Norris",
+        "oldMayorQuestion": "¿Eres mayor de edad?",
+        "yesOption": "Si",
+        "noOption": "No",
+        "alertOfNotAllowed": {
+            "desc": "Debido a tu edad no puedes ver el contenido del app",
+            "okOption": "Aceptar"
+        }
+    },
+    "jokesListPage": {
+        "appbarTitle": "Chistes de Chuck Norris"
+    },
+    "jokePage": {
+        "appbarTitle": "Chiste de Chuck Norris"
+    }
+}

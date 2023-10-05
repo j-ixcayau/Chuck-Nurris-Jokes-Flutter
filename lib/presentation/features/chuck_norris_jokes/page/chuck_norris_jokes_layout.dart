@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 
-import 'package:chuck_norris_jokes/presentation/features/chuck_norris_jokes/viewmodel/chuck_norris_jokes_view_model.dart';
+import 'package:chuck_norris_jokes/presentation/features/chuck_norris_jokes/view_model/chuck_norris_jokes_view_model.dart';
 import 'package:chuck_norris_jokes/presentation/features/chuck_norris_jokes/widgets/chuck_norris_joke_item.dart';
 
 class ChuckNorrisJokesLayout extends StatelessWidget {

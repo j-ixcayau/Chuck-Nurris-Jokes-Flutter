@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
 
-import 'package:chuck_norris_jokes/presentation/features/ask_for_old_age/viewmodel/ask_for_old_mayor_view_model.dart';
+import 'package:chuck_norris_jokes/presentation/features/ask_for_old_age/view_model/ask_for_old_mayor_view_model.dart';
 
 class AskForOldMayorLayout extends StatelessWidget {
   const AskForOldMayorLayout({Key? key}) : super(key: key);
@@ -16,9 +17,9 @@ class AskForOldMayorLayout extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(width: MediaQuery.of(context).size.width),
-            const Text(
-              "English: You're of age?\n\nEspañol: ¿Eres mayor de edad?",
-              style: TextStyle(
+            Text(
+              'oldMayorPage.oldMayorQuestion'.tr(),
+              style: const TextStyle(
                 fontSize: 24,
               ),
               textAlign: TextAlign.center,
@@ -30,14 +31,18 @@ class AskForOldMayorLayout extends StatelessWidget {
                 Expanded(
                   child: OutlinedButton(
                     onPressed: viewModel.onContinueTap,
-                    child: const Text('Yes / Si'),
+                    child: Text(
+                      'oldMayorPage.yesOption'.tr(),
+                    ),
                   ),
                 ),
                 const SizedBox(width: 4),
                 Expanded(
                   child: ElevatedButton(
                     onPressed: viewModel.onCancelTap,
-                    child: const Text('No / No'),
+                    child: Text(
+                      'oldMayorPage.noOption'.tr(),
+                    ),
                   ),
                 ),
                 const SizedBox(width: 4),

@@ -1,4 +1,4 @@
-import 'package:chuck_norris_jokes/presentation/utils/worlds_list.dart';
+import 'package:chuck_norris_jokes/presentation/utils/constants/worlds_list.dart';
 
 /// Bad Word Filter
 class BadWorkdsChecker {
