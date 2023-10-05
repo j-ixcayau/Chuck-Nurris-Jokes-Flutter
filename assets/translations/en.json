@@ -1,0 +1,18 @@
+{
+    "oldMayorPage": {
+        "appbarTitle": "Chuck Norris Jokes",
+        "oldMayorQuestion": "You're of age?",
+        "yesOption": "Yes",
+        "noOption": "No",
+        "alertOfNotAllowed": {
+            "desc": "Due to your age you cannot see the content of the app",
+            "okOption": "Accept"
+        }
+    },
+    "jokesListPage": {
+        "appbarTitle": "Chuck Norris Jokes"
+    },
+    "jokePage": {
+        "appbarTitle": "Chuck Norris Joke"
+    }
+}

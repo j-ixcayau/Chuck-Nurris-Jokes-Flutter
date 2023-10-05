@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:chuck_norris_jokes/domain/entities/joke.dart';
+import 'package:chuck_norris_jokes/presentation/utils/constants/assets_paths.dart';
 
 class ChuckNorrisJokeItem extends StatelessWidget {
   const ChuckNorrisJokeItem({
@@ -28,7 +29,7 @@ class ChuckNorrisJokeItem extends StatelessWidget {
           contentPadding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
           leading: const Image(
             image: AssetImage(
-              'assets/chueck_norris_icon.png',
+              AssetPaths.chuckNorris,
             ),
             width: 50,
             height: 50,

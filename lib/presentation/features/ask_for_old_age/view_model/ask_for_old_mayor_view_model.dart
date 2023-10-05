@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:chuck_norris_jokes/presentation/routes/route_names.dart';
 
 class AskForOldMayorViewModel extends ChangeNotifier {
@@ -18,42 +20,24 @@ class AskForOldMayorViewModel extends ChangeNotifier {
       context: context,
       builder: (context) {
         return AlertDialog(
-          content: const Column(
+          content: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                'English:',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                'Due to your age you cannot see the content of the app',
-                style: TextStyle(
-                  fontSize: 14,
-                ),
-              ),
-              SizedBox(height: 16),
-              Text(
-                'Español:',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                'Debido a tu edad no puedes ver el contenido del app',
-                style: TextStyle(
-                  fontSize: 14,
+                'oldMayorPage.alertOfNotAllowed.desc'.tr(),
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ],
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('Aceptar'),
+              child: Text(
+                'oldMayorPage.alertOfNotAllowed.okOption'.tr(),
+              ),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -62,5 +46,12 @@ class AskForOldMayorViewModel extends ChangeNotifier {
         );
       },
     );
+  }
+
+  void updateLocale(Locale locale) async {
+    if (context.locale == locale) return;
+
+    context.setLocale(locale);
+    Navigator.pushReplacementNamed(context, RouteNames.askForOldMayor);
   }
 }

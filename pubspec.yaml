@@ -12,15 +12,22 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_localizations:
+    sdk: flutter
+
   cupertino_icons: ^1.0.4
+
+  firebase_core: ^2.16.0
 
   cached_network_image: ^3.2.1
   dartz: ^0.10.1
   equatable: ^2.0.3
   google_mobile_ads: ^3.0.0
   http: ^0.13.5
+  intl: any
   mocktail: ^1.0.0
   provider: ^6.0.3
+  easy_localization: ^3.0.3
 
 dev_dependencies:
   flutter_test:
@@ -33,6 +40,7 @@ flutter:
 
   assets:
     - assets/
+    - assets/translations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

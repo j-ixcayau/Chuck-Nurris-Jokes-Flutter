@@ -25,25 +25,25 @@ class DisplayRandomJokeViewModel extends ChangeNotifier {
           interstitialAd?.show();
         },
         onAdFailedToLoad: (LoadAdError error) {
-          print('InterstitialAd failed to load: $error');
+          debugPrint('InterstitialAd failed to load: $error');
         },
       ),
     );
 
     interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
       onAdShowedFullScreenContent: (InterstitialAd ad) {
-        print('%ad onAdShowedFullScreenContent.');
+        debugPrint('%ad onAdShowedFullScreenContent.');
       },
       onAdDismissedFullScreenContent: (InterstitialAd ad) {
-        print('$ad onAdDismissedFullScreenContent.');
+        debugPrint('$ad onAdDismissedFullScreenContent.');
         ad.dispose();
       },
       onAdFailedToShowFullScreenContent: (InterstitialAd ad, AdError error) {
-        print('$ad onAdFailedToShowFullScreenContent: $error');
+        debugPrint('$ad onAdFailedToShowFullScreenContent: $error');
         ad.dispose();
       },
       onAdImpression: (InterstitialAd ad) {
-        print('$ad impression occurred.');
+        debugPrint('$ad impression occurred.');
       },
     );
   }

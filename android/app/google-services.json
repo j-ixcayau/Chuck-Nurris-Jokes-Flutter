@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "77388352372",
+    "project_id": "chuck-norris-jokes-d32a8",
+    "storage_bucket": "chuck-norris-jokes-d32a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:77388352372:android:c1d400cd21ab70ded6ba21",
+        "android_client_info": {
+          "package_name": "com.jixcayau.chuckNorrisJokes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAed37kO5JiHBB3tEJqR8X-lb9m-w1NlU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
