@@ -21,6 +21,12 @@ flutter run
 
 or use your favorite editor.
 
+## Screenshots
+
+![Main](readme/main.png 'Main screen')
+![Jokes List](readme/jokes_list.png 'Jokes List screen')
+![Joke](readme/joke.png 'Joke screen')
+
 # Developer
 
 For any issue, consult or anything else don't hesitate chatting with me [linkedin](https://www.linkedin.com/in/jonathanixcayau/)
